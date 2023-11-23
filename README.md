@@ -1,4 +1,41 @@
-This is a [Next.js](https://nextjs.org/) template to use when reporting a [bug in the Next.js repository](https://github.com/vercel/next.js/issues).
+# Demonstration of antd@4 and Next.js 14.0.3 issue
+
+When trying to use `antd@4.x` with Next.js 14.0.3, the project fails to build. This app demonstrates the bug.
+
+```shell
+$ npm run build
+
+> build
+> next build
+
+ ✓ Linting and checking validity of types
+   ▲ Next.js 14.0.4-canary.11
+
+ ✓ Creating an optimized production build
+ ✓ Compiled successfully
+   Collecting page data  ./next.js14.0.3-antd4-reproduction/node_modules/antd/es/spin/index.js:1
+import _extends from "@babel/runtime/helpers/esm/extends";
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+    at internalCompileFunction (node:internal/vm:73:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1153:20)
+    at Module._compile (node:internal/modules/cjs/loader:1197:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1287:10)
+    at Module.load (node:internal/modules/cjs/loader:1091:32)
+    at Module._load (node:internal/modules/cjs/loader:938:12)
+    at Module.require (node:internal/modules/cjs/loader:1115:19)
+    at mod.require (/next.js14.0.3-antd4-reproduction/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:130:18)
+    at 9 (/next.js14.0.3-antd4-reproduction/.next/server/pages/index.js:1:742)
+
+> Build error occurred
+Error: Failed to collect page data for /
+    at /next.js14.0.3-antd4-reproduction/node_modules/next/dist/build/utils.js:1217:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  type: 'Error'
+}
+```
 
 ## Getting Started
 
